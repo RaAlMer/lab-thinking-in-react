@@ -3,11 +3,10 @@ import { ProductRow } from '..';
 
 export function ProductTable({ products }) {
   return (
-    <div>
-      {console.log(products)}
-      <h1>Table</h1>
+    <div className='product-table'>
+      <span>Name</span><span>Price</span>
       {products.map((product) => {
-        <ProductRow
+        return <ProductRow
           key={product.id}
           prod={{
               name: product.name,

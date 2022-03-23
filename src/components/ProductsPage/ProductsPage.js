@@ -21,7 +21,7 @@ export function ProductsPage () {
   };
   
   return(
-      <div>
+      <div className='product-page'>
         <h1>IronStore</h1>
         <SearchBar 
           search={searchProd}
