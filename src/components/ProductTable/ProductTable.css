@@ -1,3 +1,21 @@
-.product-table {
-    
+.table_container {
+    width: 90%;
 }
+  
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+table > tr {
+    border: 1px solid lightgray;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+.headers {
+    background-color: rgb(197, 195, 195);
+    color: rgb(107, 106, 106);
+}
+  

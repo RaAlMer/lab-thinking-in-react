@@ -4,7 +4,8 @@
     align-items: center;
     width: 100vw;
 }
-
-.search-container input[type= "search"] {
+  
+.search-container input[type="search"] {
     width: 90%;
 }
+  
