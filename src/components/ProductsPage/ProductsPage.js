@@ -6,30 +6,21 @@ import "./ProductsPage.css";
 export function ProductsPage() {
   const [products, setProducts] = useState(jsonData);
   const [searchProd, setSearchProd] = useState("");
-  const [filterProd, setFilterProd] = useState(jsonData);
-  const [checkProd, setCheckProd] = useState(jsonData);
-  const [checkFilterProd, setCheckFilterProd] = useState(jsonData);
+  const [filterProd, setFilterProd] = useState(products);
+  const [checkProd, setCheckProd] = useState(products);
   const [boolCheck, setBoolCheck] = useState(false);
 
   const searchProduct = (searchProd) => {
     const prodFiltered = !searchProd
       ? products
-      : filterProd.filter((product) =>
+      : products.filter((product) =>
           product.name
             .toString()
             .toLowerCase()
             .includes(searchProd.toLocaleLowerCase())
         );
     setFilterProd(prodFiltered);
-    const checkFiltered = !searchProd
-      ? products
-      : checkFilterProd.filter((product) =>
-          product.name
-            .toString()
-            .toLowerCase()
-            .includes(searchProd.toLocaleLowerCase())
-        );
-    setCheckFilterProd(checkFiltered);
+    setCheckProd(prodFiltered);
   };
 
   const checkProduct = () => {
@@ -38,10 +29,6 @@ export function ProductsPage() {
     });
     setBoolCheck(!boolCheck);
     setCheckProd(check);
-    const checkFilter = checkFilterProd.filter((product) => {
-      return product.inStock === true;
-    });
-    setCheckFilterProd(checkFilter);
   };
 
   return (
@@ -54,11 +41,8 @@ export function ProductsPage() {
         checkProduct={checkProduct}
       />
       <ProductTable
-        products={products}
         filterProducts={filterProd}
-        searchProd={searchProd}
         checkProd={checkProd}
-        checkFilterProd={checkFilterProd}
         boolCheck={boolCheck}
       />
     </div>
